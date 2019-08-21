@@ -1,0 +1,876 @@
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14        }
+                         D    15    }
+                         D    16
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in highp vec4 vinCircleEdge_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            highp vec4 circleEdge;
+                         D    13            circleEdge = vinCircleEdge_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            highp float d = length(circleEdge.xy);
+                         D    16            mediump float distanceToOuterEdge = circleEdge.z * (1.0 - d);
+                         D    17            mediump float edgeAlpha = clamp(distanceToOuterEdge, 0.0, 1.0);
+                         D    18            outputCoverage_Stage0 = vec4(edgeAlpha);
+                         D    19        }
+                         D    20        {
+                         D    21            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    22        }
+                         D    23    }
+                         D    24
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    in highp vec4 varccoord_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            outputColor_Stage0 = vcolor_Stage0;
+                         D    13            outputCoverage_Stage0 = vec4(1.0);
+                         D    14            if (vec2(0.0) != varccoord_Stage0.xy) {
+                         D    15                highp float fn = dot(varccoord_Stage0.xy, varccoord_Stage0.xy) - 1.0;
+                         D    16                if (fn > 0.0) {
+                         D    17                    outputCoverage_Stage0 = vec4(0.0);
+                         D    18                }
+                         D    19            }
+                         D    20        }
+                         D    21        {
+                         D    22            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    23        }
+                         D    24    }
+                         D    25
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in highp vec4 vinCircleEdge_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            highp vec4 circleEdge;
+                         D    13            circleEdge = vinCircleEdge_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            highp float d = length(circleEdge.xy);
+                         D    16            mediump float distanceToOuterEdge = circleEdge.z * (1.0 - d);
+                         D    17            mediump float edgeAlpha = clamp(distanceToOuterEdge, 0.0, 1.0);
+                         D    18            mediump float distanceToInnerEdge = circleEdge.z * (d - circleEdge.w);
+                         D    19            mediump float innerAlpha = clamp(distanceToInnerEdge, 0.0, 1.0);
+                         D    20            edgeAlpha *= innerAlpha;
+                         D    21            outputCoverage_Stage0 = vec4(edgeAlpha);
+                         D    22        }
+                         D    23        {
+                         D    24            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    25        }
+                         D    26    }
+                         D    27
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in highp vec4 vinCircleEdge_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            highp vec4 circleEdge;
+                         D    13            circleEdge = vinCircleEdge_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            highp float d = length(circleEdge.xy);
+                         D    16            mediump float distanceToOuterEdge = circleEdge.z * (1.0 - d);
+                         D    17            mediump float edgeAlpha = clamp(distanceToOuterEdge, 0.0, 1.0);
+                         D    18            outputCoverage_Stage0 = vec4(edgeAlpha);
+                         D    19        }
+                         D    20        {
+                         D    21            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    22        }
+                         D    23    }
+                         D    24
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    in highp vec4 varccoord_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            outputColor_Stage0 = vcolor_Stage0;
+                         D    13            outputCoverage_Stage0 = vec4(1.0);
+                         D    14            if (vec2(0.0) != varccoord_Stage0.xy) {
+                         D    15                highp float fn = dot(varccoord_Stage0.xy, varccoord_Stage0.xy) - 1.0;
+                         D    16                if (fn > 0.0) {
+                         D    17                    outputCoverage_Stage0 = vec4(0.0);
+                         D    18                }
+                         D    19            }
+                         D    20        }
+                         D    21        {
+                         D    22            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    23        }
+                         D    24    }
+                         D    25
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in highp vec4 vinCircleEdge_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            highp vec4 circleEdge;
+                         D    13            circleEdge = vinCircleEdge_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            highp float d = length(circleEdge.xy);
+                         D    16            mediump float distanceToOuterEdge = circleEdge.z * (1.0 - d);
+                         D    17            mediump float edgeAlpha = clamp(distanceToOuterEdge, 0.0, 1.0);
+                         D    18            mediump float distanceToInnerEdge = circleEdge.z * (d - circleEdge.w);
+                         D    19            mediump float innerAlpha = clamp(distanceToInnerEdge, 0.0, 1.0);
+                         D    20            edgeAlpha *= innerAlpha;
+                         D    21            outputCoverage_Stage0 = vec4(edgeAlpha);
+                         D    22        }
+                         D    23        {
+                         D    24            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    25        }
+                         D    26    }
+                         D    27
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform sampler2D uTextureSampler_0_Stage0;
+                         D     7    in highp vec2 vTextureCoords_Stage0;
+                         D     8    flat in highp int vTexIndex_Stage0;
+                         D     9    in highp vec2 vIntTextureCoords_Stage0;
+                         D    10    in mediump vec4 vinColor_Stage0;
+                         D    11    void main() {
+                         D    12        mediump vec4 outputColor_Stage0;
+                         D    13        mediump vec4 outputCoverage_Stage0;
+                         D    14        {
+                         D    15            outputColor_Stage0 = vinColor_Stage0;
+                         D    16            highp vec2 uv = vTextureCoords_Stage0;
+                         D    17            mediump vec4 texColor;
+                         D    18            {
+                         D    19                texColor = texture(uTextureSampler_0_Stage0, uv);
+                         D    20            }
+                         D    21            mediump float distance = 7.96875 * (texColor.x - 0.50196081399917603);
+                         D    22            mediump float afwidth;
+                         D    23            afwidth = abs(0.64999997615814209 * -dFdy(vIntTextureCoords_Stage0.y));
+                         D    24            mediump float val = smoothstep(-afwidth, afwidth, distance);
+                         D    25            outputCoverage_Stage0 = vec4(val);
+                         D    26        }
+                         D    27        {
+                         D    28            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    29        }
+                         D    30    }
+                         D    31
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec4 uColor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = uColor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14        }
+                         D    15    }
+                         D    16
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform sampler2D uTextureSampler_0_Stage0;
+                         D     7    in highp vec2 vTextureCoords_Stage0;
+                         D     8    flat in highp int vTexIndex_Stage0;
+                         D     9    in highp vec2 vIntTextureCoords_Stage0;
+                         D    10    in mediump vec4 vinColor_Stage0;
+                         D    11    void main() {
+                         D    12        mediump vec4 outputColor_Stage0;
+                         D    13        mediump vec4 outputCoverage_Stage0;
+                         D    14        {
+                         D    15            outputColor_Stage0 = vinColor_Stage0;
+                         D    16            highp vec2 uv = vTextureCoords_Stage0;
+                         D    17            mediump vec4 texColor;
+                         D    18            {
+                         D    19                texColor = texture(uTextureSampler_0_Stage0, uv);
+                         D    20            }
+                         D    21            mediump float distance = 7.96875 * (texColor.x - 0.50196081399917603);
+                         D    22            mediump float afwidth;
+                         D    23            afwidth = abs(0.64999997615814209 * -dFdy(vIntTextureCoords_Stage0.y));
+                         D    24            mediump float val = smoothstep(-afwidth, afwidth, distance);
+                         D    25            outputCoverage_Stage0 = vec4(val);
+                         D    26        }
+                         D    27        {
+                         D    28            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    29        }
+                         D    30    }
+                         D    31
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec4 uColor_Stage0;
+                         D     7    in mediump float vinCoverage_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            outputColor_Stage0 = uColor_Stage0;
+                         D    13            mediump float alpha = 1.0;
+                         D    14            alpha = vinCoverage_Stage0;
+                         D    15            outputCoverage_Stage0 = vec4(alpha);
+                         D    16        }
+                         D    17        {
+                         D    18            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    19        }
+                         D    20    }
+                         D    21
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec4 uColor_Stage0;
+                         D     7    uniform mediump float uCoverage_Stage0;
+                         D     8    in mediump vec4 vHairQuadEdge_Stage0;
+                         D     9    void main() {
+                         D    10        mediump vec4 outputColor_Stage0;
+                         D    11        mediump vec4 outputCoverage_Stage0;
+                         D    12        {
+                         D    13            outputColor_Stage0 = uColor_Stage0;
+                         D    14            mediump float edgeAlpha;
+                         D    15            mediump vec2 duvdx = dFdx(vHairQuadEdge_Stage0.xy);
+                         D    16            mediump vec2 duvdy = -dFdy(vHairQuadEdge_Stage0.xy);
+                         D    17            mediump vec2 gF = vec2((2.0 * vHairQuadEdge_Stage0.x) * duvdx.x - duvdx.y, (2.0 * vHairQuadEdge_Stage0.x) * duvdy.x - duvdy.y);
+                         D    18            edgeAlpha = vHairQuadEdge_Stage0.x * vHairQuadEdge_Stage0.x - vHairQuadEdge_Stage0.y;
+                         D    19            edgeAlpha = sqrt((edgeAlpha * edgeAlpha) / dot(gF, gF));
+                         D    20            edgeAlpha = max(1.0 - edgeAlpha, 0.0);
+                         D    21            outputCoverage_Stage0 = vec4(uCoverage_Stage0 * edgeAlpha);
+                         D    22        }
+l@42b9ab4[MainActivity]  D  ViewPostIme pointer 0
+                         D  ViewPostIme pointer 1
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14        }
+                         D    15    }
+                         D    16
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec3 vinShadowParams_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            mediump vec3 shadowParams;
+                         D    13            shadowParams = vinShadowParams_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            mediump float d = length(shadowParams.xy);
+                         D    16            mediump float distance = shadowParams.z * (1.0 - d);
+                         D    17            mediump float factor = 1.0 - clamp(distance, 0.0, 1.0);
+                         D    18            factor = exp((-factor * factor) * 4.0) - 0.017999999225139618;
+                         D    19            outputCoverage_Stage0 = vec4(factor);
+                         D    20        }
+                         D    21        {
+                         D    22            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    23        }
+                         D    24    }
+                         D    25
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14        }
+                         D    15    }
+                         D    16
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec4 ucolor_Stage1_c1_c0_c0_c0;
+                         D     7    in mediump vec4 vcolor_Stage0;
+                         D     8    mediump vec4 stage_Stage1_c0_c0(mediump vec4 _input) {
+                         D     9        mediump vec4 out0;
+                         D    10        mediump float factor = 1.0 - _input.w;
+                         D    11        {
+                         D    12            factor = exp((-factor * factor) * 4.0) - 0.017999999225139618;
+                         D    13        }
+                         D    14        out0 = vec4(factor);
+                         D    15        return out0;
+                         D    16    }
+                         D    17    mediump vec4 stage_Stage1_c1_c0_c0_c0(mediump vec4 _input) {
+                         D    18        mediump vec4 child_c1_c0;
+                         D    19        {
+                         D    20            child_c1_c0 = ucolor_Stage1_c1_c0_c0_c0;
+                         D    21        }
+                         D    22        return child_c1_c0;
+                         D    23    }
+                         D    24    mediump vec4 stage_Stage1_c1_c0(mediump vec4 _input) {
+                         D    25        mediump vec4 output_Stage1;
+                         D    26        mediump vec4 child_c1_c0;
+                         D    27        child_c1_c0 = stage_Stage1_c1_c0_c0_c0(vec4(1.0));
+                         D    28        output_Stage1 = _input * child_c1_c0;
+                         D    29        return output_Stage1;
+                         D    30    }
+                         D    31    void main() {
+                         D    32        mediump vec4 outputColor_Stage0;
+                         D    33        {
+                         D    34            outputColor_Stage0 = vcolor_Stage0;
+                         D    35        }
+                         D    36        mediump vec4 output_Stage1;
+                         D    37        {
+                         D    38            mediump vec4 out0;
+                         D    39            mediump vec4 _childInput_c0 = outputColor_Stage0;
+                         D    40            out0 = stage_Stage1_c0_c0(_childInput_c0);
+                         D    41            mediump vec4 _childInput_c1 = out0;
+                         D    42            output_Stage1 = stage_Stage1_c1_c0(_childInput_c1);
+                         D    43        }
+                         D    44        {
+                         D    45            sk_FragColor = output_Stage1;
+                         D    46        }
+                         D    47    }
+                         D    48
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec4 ucolor_Stage1_c1_c0_c0_c0;
+                         D     7    in mediump vec4 vcolor_Stage0;
+                         D     8    mediump vec4 stage_Stage1_c0_c0(mediump vec4 _input) {
+                         D     9        mediump vec4 out0;
+                         D    10        mediump float factor = 1.0 - _input.w;
+                         D    11        {
+                         D    12            factor = exp((-factor * factor) * 4.0) - 0.017999999225139618;
+                         D    13        }
+                         D    14        out0 = vec4(factor);
+                         D    15        return out0;
+                         D    16    }
+                         D    17    mediump vec4 stage_Stage1_c1_c0_c0_c0(mediump vec4 _input) {
+                         D    18        mediump vec4 child_c1_c0;
+                         D    19        {
+                         D    20            child_c1_c0 = ucolor_Stage1_c1_c0_c0_c0;
+                         D    21        }
+                         D    22        return child_c1_c0;
+                         D    23    }
+                         D    24    mediump vec4 stage_Stage1_c1_c0(mediump vec4 _input) {
+                         D    25        mediump vec4 output_Stage1;
+                         D    26        mediump vec4 child_c1_c0;
+                         D    27        child_c1_c0 = stage_Stage1_c1_c0_c0_c0(vec4(1.0));
+                         D    28        output_Stage1 = _input * child_c1_c0;
+                         D    29        return output_Stage1;
+                         D    30    }
+                         D    31    void main() {
+                         D    32        mediump vec4 outputColor_Stage0;
+                         D    33        {
+                         D    34            outputColor_Stage0 = vcolor_Stage0;
+                         D    35        }
+                         D    36        mediump vec4 output_Stage1;
+                         D    37        {
+                         D    38            mediump vec4 out0;
+                         D    39            mediump vec4 _childInput_c0 = outputColor_Stage0;
+                         D    40            out0 = stage_Stage1_c0_c0(_childInput_c0);
+                         D    41            mediump vec4 _childInput_c1 = out0;
+                         D    42            output_Stage1 = stage_Stage1_c1_c0(_childInput_c1);
+                         D    43        }
+                         D    44        {
+                         D    45            sk_FragColor = output_Stage1;
+                         D    46        }
+                         D    47    }
+                         D    48
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in highp vec4 vinCircleEdge_Stage0;
+                         D     7    in mediump vec4 vinColor_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputColor_Stage0;
+                         D    10        mediump vec4 outputCoverage_Stage0;
+                         D    11        {
+                         D    12            highp vec4 circleEdge;
+                         D    13            circleEdge = vinCircleEdge_Stage0;
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            highp float d = length(circleEdge.xy);
+                         D    16            mediump float distanceToOuterEdge = circleEdge.z * (1.0 - d);
+                         D    17            mediump float edgeAlpha = clamp(distanceToOuterEdge, 0.0, 1.0);
+                         D    18            outputCoverage_Stage0 = vec4(edgeAlpha);
+                         D    19        }
+                         D    20        {
+                         D    21            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    22        }
+                         D    23    }
+                         D    24
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform sampler2D uTextureSampler_0_Stage0;
+                         D     7    in highp vec2 vTextureCoords_Stage0;
+                         D     8    flat in highp int vTexIndex_Stage0;
+                         D     9    in mediump vec4 vinColor_Stage0;
+                         D    10    void main() {
+                         D    11        mediump vec4 outputColor_Stage0;
+                         D    12        mediump vec4 outputCoverage_Stage0;
+                         D    13        {
+                         D    14            outputColor_Stage0 = vinColor_Stage0;
+                         D    15            mediump vec4 texColor;
+                         D    16            {
+                         D    17                texColor = texture(uTextureSampler_0_Stage0, vTextureCoords_Stage0);
+                         D    18            }
+                         D    19            outputCoverage_Stage0 = texColor;
+                         D    20        }
+                         D    21        {
+                         D    22            sk_FragColor = outputColor_Stage0 * outputCoverage_Stage0;
+                         D    23        }
+                         D    24    }
+                         D    25
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14            sk_FragColor = sk_FragColor.wwww;
+                         D    15        }
+                         D    16    }
+                         D    17
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    in highp float vcoverage_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 outputCoverage_Stage0;
+                         D    10        {
+                         D    11            highp float coverage = vcoverage_Stage0;
+                         D    12            outputCoverage_Stage0 = vec4(coverage);
+                         D    13        }
+                         D    14        {
+                         D    15            sk_FragColor = outputCoverage_Stage0;
+                         D    16            sk_FragColor = sk_FragColor.wwww;
+                         D    17        }
+                         D    18    }
+                         D    19
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform sampler2D uTextureSampler_0_Stage1;
+                         D     7    in highp vec2 vTransformedCoords_0_Stage0;
+                         D     8    void main() {
+                         D     9        mediump vec4 output_Stage1;
+                         D    10        {
+                         D    11            output_Stage1 = texture(uTextureSampler_0_Stage1, vTransformedCoords_0_Stage0).xyzw;
+                         D    12        }
+                         D    13        {
+                         D    14            sk_FragColor = output_Stage1;
+                         D    15            sk_FragColor = sk_FragColor.wwww;
+                         D    16        }
+                         D    17    }
+                         D    18
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14            sk_FragColor = sk_FragColor.wwww;
+                         D    15        }
+                         D    16    }
+                         D    17
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec2 uImageIncrement_Stage1;
+                         D     7    uniform mediump vec4 uKernel_Stage1[6];
+                         D     8    uniform sampler2D uTextureSampler_0_Stage1;
+                         D     9    in highp vec2 vTransformedCoords_0_Stage0;
+                         D    10    void main() {
+                         D    11        mediump vec4 output_Stage1;
+                         D    12        {
+                         D    13            output_Stage1 = vec4(0.0, 0.0, 0.0, 0.0);
+                         D    14            highp vec2 coord = vTransformedCoords_0_Stage0 - 11.0 * uImageIncrement_Stage1;
+                         D    15            highp vec2 coordSampled = vec2(0.0, 0.0);
+                         D    16            coordSampled = coord;
+                         D    17            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].x;
+                         D    18            coord += uImageIncrement_Stage1;
+                         D    19            coordSampled = coord;
+                         D    20            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].y;
+                         D    21            coord += uImageIncrement_Stage1;
+                         D    22            coordSampled = coord;
+                         D    23            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].z;
+                         D    24            coord += uImageIncrement_Stage1;
+                         D    25            coordSampled = coord;
+                         D    26            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].w;
+                         D    27            coord += uImageIncrement_Stage1;
+                         D    28            coordSampled = coord;
+                         D    29            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].x;
+                         D    30            coord += uImageIncrement_Stage1;
+                         D    31            coordSampled = coord;
+                         D    32            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].y;
+                         D    33            coord += uImageIncrement_Stage1;
+                         D    34            coordSampled = coord;
+                         D    35            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].z;
+                         D    36            coord += uImageIncrement_Stage1;
+                         D    37            coordSampled = coord;
+                         D    38            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].w;
+                         D    39            coord += uImageIncrement_Stage1;
+                         D    40            coordSampled = coord;
+                         D    41            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].x;
+                         D    42            coord += uImageIncrement_Stage1;
+                         D    43            coordSampled = coord;
+                         D    44            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].y;
+                         D    45            coord += uImageIncrement_Stage1;
+                         D    46            coordSampled = coord;
+                         D    47            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].z;
+                         D    48            coord += uImageIncrement_Stage1;
+                         D    49            coordSampled = coord;
+                         D    50            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].w;
+                         D    51            coord += uImageIncrement_Stage1;
+                         D    52            coordSampled = coord;
+                         D    53            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].x;
+                         D    54            coord += uImageIncrement_Stage1;
+                         D    55            coordSampled = coord;
+                         D    56            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].y;
+                         D    57            coord += uImageIncrement_Stage1;
+                         D    58            coordSampled = coord;
+                         D    59            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].z;
+                         D    60            coord += uImageIncrement_Stage1;
+                         D    61            coordSampled = coord;
+                         D    62            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].w;
+                         D    63            coord += uImageIncrement_Stage1;
+                         D    64            coordSampled = coord;
+                         D    65            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].x;
+                         D    66            coord += uImageIncrement_Stage1;
+                         D    67            coordSampled = coord;
+                         D    68            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].y;
+                         D    69            coord += uImageIncrement_Stage1;
+                         D    70            coordSampled = coord;
+                         D    71            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].z;
+                         D    72            coord += uImageIncrement_Stage1;
+                         D    73            coordSampled = coord;
+                         D    74            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].w;
+                         D    75            coord += uImageIncrement_Stage1;
+                         D    76            coordSampled = coord;
+                         D    77            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[5].x;
+                         D    78            coord += uImageIncrement_Stage1;
+                         D    79            coordSampled = coord;
+                         D    80            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[5].y;
+                         D    81            coord += uImageIncrement_Stage1;
+                         D    82            coordSampled = coord;
+                         D    83            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[5].z;
+                         D    84            coord += uImageIncrement_Stage1;
+                         D    85        }
+                         D    86        {
+                         D    87            sk_FragColor = output_Stage1;
+                         D    88            sk_FragColor = sk_FragColor.wwww;
+                         D    89        }
+                         D    90    }
+                         D    91
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    in mediump vec4 vcolor_Stage0;
+                         D     7    void main() {
+                         D     8        mediump vec4 outputColor_Stage0;
+                         D     9        {
+                         D    10            outputColor_Stage0 = vcolor_Stage0;
+                         D    11        }
+                         D    12        {
+                         D    13            sk_FragColor = outputColor_Stage0;
+                         D    14            sk_FragColor = sk_FragColor.wwww;
+                         D    15        }
+                         D    16    }
+                         D    17
+                         D  Errors:
+                         D  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                 Adreno  I  ERROR: The GPU does not support this version of OpenGL ES, try an older version
+                   skia  D  Shader compilation error
+                         D  ------------------------
+                         D     1    #version 310 es
+                         D     2
+                         D     3    in highp vec4 sk_FragCoord_Workaround;
+                         D     4    precision mediump float;
+                         D     5    out mediump vec4 sk_FragColor;
+                         D     6    uniform mediump vec2 uImageIncrement_Stage1;
+                         D     7    uniform mediump vec4 uKernel_Stage1[6];
+                         D     8    uniform sampler2D uTextureSampler_0_Stage1;
+                         D     9    in highp vec2 vTransformedCoords_0_Stage0;
+                         D    10    void main() {
+                         D    11        mediump vec4 output_Stage1;
+                         D    12        {
+                         D    13            output_Stage1 = vec4(0.0, 0.0, 0.0, 0.0);
+                         D    14            highp vec2 coord = vTransformedCoords_0_Stage0 - 11.0 * uImageIncrement_Stage1;
+                         D    15            highp vec2 coordSampled = vec2(0.0, 0.0);
+                         D    16            coordSampled = coord;
+                         D    17            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].x;
+                         D    18            coord += uImageIncrement_Stage1;
+                         D    19            coordSampled = coord;
+                         D    20            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].y;
+                         D    21            coord += uImageIncrement_Stage1;
+                         D    22            coordSampled = coord;
+                         D    23            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].z;
+                         D    24            coord += uImageIncrement_Stage1;
+                         D    25            coordSampled = coord;
+                         D    26            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[0].w;
+                         D    27            coord += uImageIncrement_Stage1;
+                         D    28            coordSampled = coord;
+                         D    29            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].x;
+                         D    30            coord += uImageIncrement_Stage1;
+                         D    31            coordSampled = coord;
+                         D    32            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].y;
+                         D    33            coord += uImageIncrement_Stage1;
+                         D    34            coordSampled = coord;
+                         D    35            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].z;
+                         D    36            coord += uImageIncrement_Stage1;
+                         D    37            coordSampled = coord;
+                         D    38            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[1].w;
+                         D    39            coord += uImageIncrement_Stage1;
+                         D    40            coordSampled = coord;
+                         D    41            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].x;
+                         D    42            coord += uImageIncrement_Stage1;
+                         D    43            coordSampled = coord;
+                         D    44            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].y;
+                         D    45            coord += uImageIncrement_Stage1;
+                         D    46            coordSampled = coord;
+                         D    47            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].z;
+                         D    48            coord += uImageIncrement_Stage1;
+                         D    49            coordSampled = coord;
+                         D    50            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[2].w;
+                         D    51            coord += uImageIncrement_Stage1;
+                         D    52            coordSampled = coord;
+                         D    53            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].x;
+                         D    54            coord += uImageIncrement_Stage1;
+                         D    55            coordSampled = coord;
+                         D    56            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].y;
+                         D    57            coord += uImageIncrement_Stage1;
+                         D    58            coordSampled = coord;
+                         D    59            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].z;
+                         D    60            coord += uImageIncrement_Stage1;
+                         D    61            coordSampled = coord;
+                         D    62            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[3].w;
+                         D    63            coord += uImageIncrement_Stage1;
+                         D    64            coordSampled = coord;
+                         D    65            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].x;
+                         D    66            coord += uImageIncrement_Stage1;
+                         D    67            coordSampled = coord;
+                         D    68            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].y;
+                         D    69            coord += uImageIncrement_Stage1;
+                         D    70            coordSampled = coord;
+                         D    71            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].z;
+                         D    72            coord += uImageIncrement_Stage1;
+                         D    73            coordSampled = coord;
+                         D    74            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[4].w;
+                         D    75            coord += uImageIncrement_Stage1;
+                         D    76            coordSampled = coord;
+                         D    77            output_Stage1 += texture(uTextureSampler_0_Stage1, coordSampled) * uKernel_Stage1[5].x;
+
